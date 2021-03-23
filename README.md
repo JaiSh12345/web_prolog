@@ -6,6 +6,9 @@ A Web Based Prolog Interpreter
 - No setup, install or download required!
 
 ## Changelog
+- Version 0.2:
+  - Added Tau Prolog
+  - Created basic test program
 - Version 0.1:
   - Added `index.html`
 ## Contributors

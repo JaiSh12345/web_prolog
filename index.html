@@ -5,8 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Prolog | Home</title>
+    <script src="prolog/all.js"></script>
 </head>
 <body>
     Welcome to Web Prolog!
+    <div id="prolog-output"></div>
+    <div id="prolog-result"></div>
+    <script id="test.pl" type="text/prolog">
+        :- use_module(library(dom)).
+        run:- write('Program successfully run!').
+    </script>
+    <script type="text/javascript">
+        function prolog_result(res) {
+            const answer = pl.format_answer(res)
+            console.log('Res:',res)
+            console.log('Ans:',answer)
+            document.getElementById('prolog-result').innerHTML += answer
+        }
+        function prolog_output(text) {
+            console.log('Text:',text)
+            document.getElementById('prolog-output').innerHTML += text
+        }
+        const session = pl.create(1000)
+        session.current_output.stream.put = prolog_output
+        session.consult('test.pl')
+        session.query('run.')
+        session.answer({ success: prolog_result })
+    </script>
 </body>
 </html>
