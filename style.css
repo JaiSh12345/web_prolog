@@ -1,0 +1,8 @@
+script:first-of-type {
+    display: block;
+    white-space: pre-wrap;
+}
+
+.code {
+    font-family: monospace;
+}
